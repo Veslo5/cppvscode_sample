@@ -1,0 +1,96 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build active file",
+            "command": "cl.exe",
+            "args": [
+                //"/c", // compile without linking                                    
+                "/clr",
+                "/I${workspaceFolder}\\include\\raylibcpp\\include\\",
+                "/I${workspaceFolder}\\include\\raylib400w32\\include\\",
+                "/I${workspaceFolder}\\include\\rllmGui\\",
+                "/I${workspaceFolder}\\include\\imgui187\\",
+                "/I${workspaceFolder}\\include\\lua542\\include\\",
+                "${workspaceFolder}\\include\\imgui187\\imgui.cpp",
+                "${workspaceFolder}\\include\\imgui187\\imgui_demo.cpp",
+                "${workspaceFolder}\\include\\imgui187\\imgui_draw.cpp",
+                "${workspaceFolder}\\include\\imgui187\\imgui_tables.cpp",
+                "${workspaceFolder}\\include\\imgui187\\imgui_widgets.cpp",                
+                "${workspaceFolder}\\include\\rllmGui\\rlImGui.cpp",                
+                "/Zi",
+                //"/EHsc",
+                "/nologo",
+                "/Fe:",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}",
+                "user32.lib",
+                "kernel32.lib",
+                "gdi32.lib",
+                "shell32.lib",
+                "winmm.lib",
+                //"winspool.lib",
+                //"comdlg32.lib",
+                //"advapi32.lib",
+                //"ole32.lib",
+                //"oleaut32.lib",
+                //"uuid.lib",
+                //"odbc32.lib",
+                //"odbccp32.lib",
+                "msvcmrt.lib",
+                "msvcrt.lib",
+                "${workspaceFolder}\\include\\raylib400w32\\lib\\raylib.lib",
+                "${workspaceFolder}\\include\\lua542\\lua54.lib"
+                
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "MSVC BUILD TASK WITH LINKING."
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: emcc build active file",
+            "command": "emcc",
+            "args": [                
+                "-o test.html",
+                "${file}",
+                "-Os -Wall",
+                "${workspaceFolder}\\include\\raylib400WASM\\lib\\libraylib.a",                
+                "${workspaceFolder}\\include\\lua542WASM\\liblua.a",                                
+                "-I${workspaceFolder}\\include\\raylibcpp\\include\\",
+                "-I${workspaceFolder}\\include\\raylib400WASM\\include\\",
+                "-I${workspaceFolder}\\include\\rllmGui\\",
+                "-I${workspaceFolder}\\include\\imgui187\\",
+                "-I${workspaceFolder}\\include\\lua542WASM\\include\\",
+                // "${workspaceFolder}\\include\\imgui187\\imgui.cpp",
+                // "${workspaceFolder}\\include\\imgui187\\imgui_demo.cpp",
+                // "${workspaceFolder}\\include\\imgui187\\imgui_draw.cpp",
+                // "${workspaceFolder}\\include\\imgui187\\imgui_tables.cpp",
+                // "${workspaceFolder}\\include\\imgui187\\imgui_widgets.cpp",                
+                // "${workspaceFolder}\\include\\rllmGui\\rlImGui.cpp",                
+                "-s USE_GLFW=3",
+                "-s ASYNCIFY"                
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+              //  "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "EMCC BUILD TASK WITH LINKING."
+        }
+    ],
+    "version": "2.0.0"
+}
