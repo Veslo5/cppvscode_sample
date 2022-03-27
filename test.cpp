@@ -16,7 +16,6 @@ int main()
 
   std::unique_ptr<bool> landscape = std::make_unique<bool>(false);
 
-
   auto window = raylib::Window(screenWidth, screenHeight, "raylib-cpp - basic window");
   window.SetState(FLAG_WINDOW_RESIZABLE);
 
