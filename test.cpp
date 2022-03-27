@@ -38,7 +38,7 @@ int main()
 
   while (!window.ShouldClose())
   {
-    int imguiWindowWidth = landscape == false ?  GetScreenWidth() : GetScreenWidth() / 3;
+    int imguiWindowWidth =  GetScreenWidth(); //landscape == false ?  GetScreenWidth() : GetScreenWidth() / 3;
 
     BeginDrawing();
 
@@ -64,7 +64,7 @@ int main()
     ImGui::SetNextWindowPos(viewport->WorkPos);
     ImGui::SetNextWindowSize(viewport->Size);
     ImGuiWindowFlags flags = ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_HorizontalScrollbar;
-    ImGui::Begin("MY CPP PROJECT", false, flags);
+    ImGui::Begin("MY CPP PROJECT", nullptr, flags);
 
     ImGui::BeginChild("INFO", ImVec2(imguiWindowWidth , GetScreenHeight() / 2), true);
     ImGui::TextWrapped("Hello, this is just custom window. Hopefully one day this become editor for little platform Iam working on.");
