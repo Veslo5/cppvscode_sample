@@ -6,7 +6,7 @@
 
 raylib::RenderTexture testtext;
 
-VGameplay::TopScene::TopScene(std::string name, Vengine::VGame *game) : Vengine::VScene(name, game)
+VGameplay::TopScene::TopScene(std::string name, Vengine::VGame *game) : Vengine::VScene(name, game), scriptWidget(std::make_unique<VGameplay::ScriptWidget>())
 {
 }
 
@@ -36,9 +36,9 @@ void VGameplay::TopScene::Draw()
 	BeginDrawing();
 	Game->ClearBackground();
 
-	ImGui::SetNextWindowSizeConstraints(ImVec2(400, 400), ImVec2(Game->WindowWidth, Game->WindowHeight));
 	rlImGuiBegin();
 
+	ImGui::SetNextWindowSize(ImVec2(200, 100));
 	ImVec2 size = ImGui::GetContentRegionAvail();
 
 	// // center the scratch pad in the view
@@ -53,7 +53,50 @@ void VGameplay::TopScene::Draw()
 	rlImGuiImage(&testtext.texture);
 	ImGui::End();
 
-	rlImGuiEnd();	
+// MAIN MENU
+#pragma region
+	if (ImGui::BeginMainMenuBar())
+	{
+		if (ImGui::BeginMenu("Settings"))
+		{
+			if (ImGui::MenuItem("Use vertical menu", nullptr, false))
+			{
+			}
+
+			ImGui::EndMenu();
+		}
+
+		if (ImGui::BeginMenu("Windows"))
+		{
+
+			if (ImGui::MenuItem("Grid Map"))
+			{
+			}
+			if (ImGui::MenuItem("Script editor"))
+			{
+			}
+			if (ImGui::MenuItem("Info"))
+			{
+			}
+
+			ImGui::EndMenu();
+		}
+
+		ImGui::EndMainMenuBar();
+	}
+#pragma endregion
+
+	// SCRIPT WINDOW
+	scriptWidget->Draw();
+
+// IMAGE SPRITE EDITOR
+#pragma region
+	ImGui::Begin("Next scene");
+
+	ImGui::End();
+#pragma endregion
+
+	rlImGuiEnd();
 
 	EndDrawing();
 }

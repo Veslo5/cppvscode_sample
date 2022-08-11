@@ -46,7 +46,7 @@ void Vengine::VGame::Run()
 		{
 			SceneManager.CurrentScene->UnloadContent();
 			SceneManager.CurrentScene = std::move(SceneManager.FutureScene);
-			SceneManager.CurrentScene->LoadContent();
+			SceneManager.CurrentScene->LoadContent();			
 			this->SceneManager.ChangeSceneNextFrame = false;
 		}
 

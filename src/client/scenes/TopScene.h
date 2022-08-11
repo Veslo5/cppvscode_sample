@@ -1,6 +1,9 @@
 #pragma once
+#include <memory>
 
 #include "VScene.h"
+#include "widgets/ScriptWidget.h"
+
 
 namespace VGameplay
 {
@@ -15,6 +18,6 @@ namespace VGameplay
         void Update(float deltaTime) override;
         void Draw() override;
     private:
-        
+        std::unique_ptr<VGameplay::ScriptWidget> scriptWidget;
     };
 } // namespace VGameplay

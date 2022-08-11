@@ -48,7 +48,9 @@ add_subdirectory(${core_src})
 #EXE (OUTPUT)
 add_executable(${PROJECT_NAME} 
 ${PROJECT_SOURCE_DIR}/test.cpp
-${client_src}/scenes/TopScene.cpp)
+${client_src}/scenes/TopScene.cpp
+${client_src}/widgets/ScriptWidget.cpp
+)
 #END EXE
 
 #INCLUDES

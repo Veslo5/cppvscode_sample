@@ -111,6 +111,6 @@
 int main()
 {
   const std::unique_ptr<Vengine::VGame> game = std::make_unique<Vengine::VGame>(800, 600, "Hello", raylib::Color(14, 7, 27));
-  game->SceneManager.SetFirstScene<VGameplay::TopScene>("Test");
+  game->SceneManager.SetFirstScene<VGameplay::TopScene>("aaa");
   game->Run();
 }

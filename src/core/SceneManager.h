@@ -68,7 +68,7 @@ namespace Vengine {
 	}
 
 	template <typename T>
-	void SceneManager::SetFirstScene(const std::string& name)
+	inline void SceneManager::SetFirstScene(const std::string& name)
 	{
 		FutureScene = std::make_unique<T>(name, game);
 	}
